@@ -4,7 +4,8 @@
 
 Що робить:
   * бере зі всіх country_*.json джерела (поле watch не false);
-  * завантажує сторінку, виділяє з неї текст і рахує хеш;
+  * завантажує сторінку, виділяє з неї текст і рахує хеш; зміну фіксує лише тоді, коли
+    нова версія збіглася на двох перевірках поспіль (так динамічні сторінки не дають шуму);
   * порівнює з links.json; зміни пише в changes.json;
   * якщо є нові зміни, створює markdown-звіт (його workflow відкриває як GitHub Issue).
 
@@ -103,12 +104,23 @@ def run(data_dir: Path, state_dir: Path, fetcher=http_fetch, today: str | None =
         entry["status"] = status
         if body is not None and 200 <= status < 300:
             digest = text_hash(normalize(body))
-            if entry.get("hash") and entry["hash"] != digest:
+            old = entry.get("hash")
+            if not old or old == digest:
+                entry["hash"] = digest
+                entry.pop("pending", None)
+            elif entry.get("pending") == digest:
+                # одна и та же новая версия на двух проверках подряд: это настоящая правка
                 new_changes.append({
                     "date": today, "country": country["name_uk"], "title": src["title"],
                     "url": url, "type": "changed",
                 })
-            entry.update({"hash": digest, "last_ok": today, "fail_count": 0, "reported_unavailable": False})
+                entry["hash"] = digest
+                entry.pop("pending", None)
+            else:
+                # страница отличается, но подтверждения ещё нет (так ведут себя страницы
+                # с динамическим содержимым): запоминаем и ждём следующей проверки
+                entry["pending"] = digest
+            entry.update({"last_ok": today, "fail_count": 0, "reported_unavailable": False})
         else:
             entry["fail_count"] = entry.get("fail_count", 0) + 1
             entry["last_error"] = err or f"HTTP {status}"

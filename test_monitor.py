@@ -38,11 +38,39 @@ def test_first_run_is_baseline_second_run_detects_change(tmp_path):
     assert all(s["last_ok"] == "2026-10-13" for s in st.values())
 
     url = "https://www.gov.pl/web/udsc"
-    ch, _ = monitor.run(data, state, Fake({url: "<p>нова новина</p>"}), "2026-10-14", delay=0)
+    new_page = Fake({url: "<p>нова новина</p>"})
+    ch, _ = monitor.run(data, state, new_page, "2026-10-14", delay=0)
+    assert ch == []  # перша відмінність ще не підтверджена
+
+    ch, _ = monitor.run(data, state, new_page, "2026-10-15", delay=0)
     assert len(ch) == 1
     assert ch[0]["type"] == "changed" and ch[0]["url"] == url and ch[0]["country"] == "Польща"
     saved = json.loads((data / "changes.json").read_text(encoding="utf-8"))
-    assert saved[0]["date"] == "2026-10-14"
+    assert saved[0]["date"] == "2026-10-15"
+
+    ch, _ = monitor.run(data, state, new_page, "2026-10-16", delay=0)
+    assert ch == []  # вже зафіксовано, повторів немає
+
+
+def test_flapping_page_never_reports(tmp_path):
+    data, state = setup(tmp_path)
+    url = "https://help.unhcr.org/germany/"
+    reports = []
+    for day in range(1, 8):
+        page = Fake({url: f"<p>лічильник {day}</p>"})
+        ch, _ = monitor.run(data, state, page, f"2026-10-0{day}", delay=0)
+        reports += [c for c in ch if c["url"] == url]
+    assert reports == []
+    assert not (data / "changes.json").exists()
+
+
+def test_change_back_to_old_version_clears_pending(tmp_path):
+    data, state = setup(tmp_path)
+    url = "https://www.gov.pl/web/udsc"
+    monitor.run(data, state, Fake(), "2026-10-01", delay=0)
+    monitor.run(data, state, Fake({url: "<p>тимчасова версія</p>"}), "2026-10-02", delay=0)
+    ch, st = monitor.run(data, state, Fake(), "2026-10-03", delay=0)
+    assert ch == [] and "pending" not in st[url]
 
 
 def test_unchanged_page_makes_no_change(tmp_path):

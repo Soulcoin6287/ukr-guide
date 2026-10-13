@@ -128,3 +128,12 @@ def test_changes_rendered_on_home(tmp_path):
     feed = (out / "feed.xml").read_text(encoding="utf-8")
     assert "Польща: UdSC" in feed
     assert "12 Oct 2026" in feed
+
+
+def test_base_url_host_is_lowercased(tmp_path):
+    out = tmp_path / "dist"
+    assert build.build(make_data(tmp_path), out, "https://Soulcoin6287.GitHub.io/ukr-guide/", "2026-10-13") == []
+    sitemap = (out / "sitemap.xml").read_text(encoding="utf-8")
+    assert "https://soulcoin6287.github.io/ukr-guide/index.html" in sitemap
+    assert "Soulcoin6287" not in sitemap
+    assert build.normalize_base("") == ""

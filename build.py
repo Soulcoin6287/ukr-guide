@@ -79,6 +79,15 @@ def is_https(url: str) -> bool:
     return p.scheme == "https" and bool(p.netloc)
 
 
+def normalize_base(url: str) -> str:
+    """Прибирає зайвий «/» і переводить назву хоста в нижній регістр (так вимагає однаковість адрес у Google)."""
+    url = (url or "").strip().rstrip("/")
+    if not url:
+        return ""
+    p = urlparse(url)
+    return p._replace(netloc=p.netloc.lower()).geturl()
+
+
 def load_data(data_dir: Path) -> dict:
     site = load_json(data_dir / "site.json", {}) or {}
     countries = []
@@ -159,7 +168,7 @@ class Ctx:
         self.countries = data["countries"]
         self.changes = data["changes"]
         self.links = data["links"]
-        self.base_url = base_url.rstrip("/")
+        self.base_url = normalize_base(base_url)
         self.today = today
 
 

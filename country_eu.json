@@ -1,0 +1,58 @@
+{
+  "code": "eu",
+  "name_uk": "Європейський Союз (загальне)",
+  "summary": "Правила тимчасового захисту, спільні для всіх країн ЄС. Конкретні права та процедури визначає національне законодавство кожної країни.",
+  "updated": "2026-10-13",
+  "facts": [
+    {
+      "text": "Тимчасовий захист для людей, які втекли з України, продовжено до 4 березня 2028 року. Рада ЄС ухвалила рішення (Implementing Decision (EU) 2026/1912) 31 липня 2026 року, його опубліковано в Official Journal 4 серпня 2026 року. Продовження застосовується з 5 березня 2027 року.",
+      "source_title": "Брифінг Європарламенту (EPRS), вересень 2026",
+      "source_url": "https://eprs.europarl.europa.eu/contents/publications/EPRS/2026/09/EPRS_BRI(2026)791473.html",
+      "checked": "2026-10-13",
+      "note": "Дані взято з брифінгу Європарламенту. Текст рішення варто звірити на EUR-Lex."
+    },
+    {
+      "text": "Нове правило: тимчасовий захист надають особам, які виконують військові обов'язки перед Україною, і довести це має заявник. Правило діє для заяв, поданих з 5 серпня 2026 року. Ті, хто мав захист у державі-члені до 4 серпня 2026 року і не втрачав його, під нього не підпадають.",
+      "source_title": "Брифінг Європарламенту (EPRS), вересень 2026",
+      "source_url": "https://eprs.europarl.europa.eu/contents/publications/EPRS/2026/09/EPRS_BRI(2026)791473.html",
+      "checked": "2026-10-13"
+    },
+    {
+      "text": "У джерелі не описано змін у правах, пов'язаних із тимчасовим захистом (проживання, робота, житло, освіта, медичне обслуговування). Обсяг цих прав визначає національне законодавство.",
+      "source_title": "Брифінг Європарламенту (EPRS), вересень 2026",
+      "source_url": "https://eprs.europarl.europa.eu/contents/publications/EPRS/2026/09/EPRS_BRI(2026)791473.html",
+      "checked": "2026-10-13"
+    },
+    {
+      "text": "Єврокомісія 26 червня 2026 року запропонувала продовження і заявила, що держави-члени мають активніше готувати скоординований перехід від тимчасового захисту (довгостроковий статус або повернення). Вона також планує пілотну програму добровільного повернення та відновлення разом із зацікавленими державами й Україною.",
+      "source_title": "Єврокомісія, Migration and Home Affairs",
+      "source_url": "https://home-affairs.ec.europa.eu/news/commission-proposes-extend-temporary-protection-people-fleeing-ukraine-additional-year-2026-06-26_en",
+      "checked": "2026-10-13"
+    }
+  ],
+  "sources": [
+    {
+      "topic": "Тимчасовий захист на рівні ЄС",
+      "title": "Єврокомісія: Migration and Home Affairs, новина про продовження захисту",
+      "url": "https://home-affairs.ec.europa.eu/news/commission-proposes-extend-temporary-protection-people-fleeing-ukraine-additional-year-2026-06-26_en",
+      "lang": "en",
+      "verified": true,
+      "checked": "2026-10-13"
+    },
+    {
+      "topic": "Тимчасовий захист на рівні ЄС",
+      "title": "Європарламент (EPRS): брифінг про продовження до березня 2028",
+      "url": "https://eprs.europarl.europa.eu/contents/publications/EPRS/2026/09/EPRS_BRI(2026)791473.html",
+      "lang": "en",
+      "verified": true,
+      "checked": "2026-10-13"
+    },
+    {
+      "topic": "Тимчасовий захист на рівні ЄС",
+      "title": "Єврокомісія: тема «EU solidarity with Ukraine»",
+      "url": "https://commission.europa.eu/topics/eu-solidarity-ukraine_en",
+      "lang": "en",
+      "verified": false
+    }
+  ]
+}

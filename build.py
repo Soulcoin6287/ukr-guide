@@ -3,7 +3,7 @@
 Використання:
     python build.py --out dist --base-url https://USER.github.io/REPO
 
-Усі дані лежать у каталозі data/: site.json, countries/*.json, changes.json (пише monitor.py).
+Усі дані лежать поруч зі скриптом: site.json, country_*.json, changes.json і links.json (останні два пише monitor.py).
 Залежностей немає, потрібен лише Python 3.10+.
 """
 from __future__ import annotations
@@ -82,7 +82,7 @@ def is_https(url: str) -> bool:
 def load_data(data_dir: Path) -> dict:
     site = load_json(data_dir / "site.json", {}) or {}
     countries = []
-    for p in sorted((data_dir / "countries").glob("*.json")):
+    for p in sorted(data_dir.glob("country_*.json")):
         c = load_json(p)
         c["_file"] = p.name
         countries.append(c)
@@ -90,7 +90,7 @@ def load_data(data_dir: Path) -> dict:
     rank = {code: i for i, code in enumerate(order)}
     countries.sort(key=lambda c: (rank.get(c.get("code"), len(order)), c.get("name_uk", "")))
     changes = load_json(data_dir / "changes.json", []) or []
-    links = load_json(data_dir.parent / "state" / "links.json", {}) or {}
+    links = load_json(data_dir / "links.json", {}) or {}
     return {"site": site, "countries": countries, "changes": changes, "links": links}
 
 
@@ -438,7 +438,7 @@ def build(data_dir: Path, out_dir: Path, base_url: str = "", today: str | None =
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
-    ap.add_argument("--data", default=str(ROOT / "data"))
+    ap.add_argument("--data", default=str(ROOT))
     ap.add_argument("--out", default=str(ROOT / "dist"))
     ap.add_argument("--base-url", default=os.environ.get("SITE_URL", ""))
     a = ap.parse_args(argv)

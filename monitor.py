@@ -3,9 +3,9 @@
     python monitor.py --report reports/latest.md
 
 Що робить:
-  * бере зі всіх data/countries/*.json джерела (поле watch не false);
+  * бере зі всіх country_*.json джерела (поле watch не false);
   * завантажує сторінку, виділяє з неї текст і рахує хеш;
-  * порівнює з state/links.json; зміни пише в data/changes.json;
+  * порівнює з links.json; зміни пише в changes.json;
   * якщо є нові зміни, створює markdown-звіт (його workflow відкриває як GitHub Issue).
 
 Монітор НІЧОГО не публікує як факт. Він лише каже: «сторінка змінилась, перевірте».
@@ -140,8 +140,8 @@ def make_report(new_changes: list[dict]) -> str:
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
-    ap.add_argument("--data", default=str(ROOT / "data"))
-    ap.add_argument("--state", default=str(ROOT / "state"))
+    ap.add_argument("--data", default=str(ROOT))
+    ap.add_argument("--state", default=str(ROOT))
     ap.add_argument("--report", default=str(ROOT / "reports" / "latest.md"))
     a = ap.parse_args(argv)
     new_changes, state = run(Path(a.data), Path(a.state))

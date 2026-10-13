@@ -15,13 +15,13 @@ def make_data(tmp_path: Path) -> Path:
     return data
 
 
-def test_real_data_is_valid():
-    assert build.validate_data(build.load_data(REAL_DATA)) == []
+def test_real_data_is_valid(tmp_path):
+    assert build.validate_data(build.load_data(make_data(tmp_path))) == []
 
 
 def test_build_creates_pages(tmp_path):
     out = tmp_path / "dist"
-    problems = build.build(REAL_DATA, out, "https://example.github.io/guide", "2026-10-13")
+    problems = build.build(make_data(tmp_path), out, "https://example.github.io/guide", "2026-10-13")
     assert problems == []
     for rel in ["index.html", "about.html", "changes.html", "404.html", "eu/index.html",
                 "pl/index.html", "de/index.html", "cz/index.html", "sitemap.xml", "feed.xml",
@@ -34,7 +34,7 @@ def test_build_creates_pages(tmp_path):
 
 def test_relative_links_depth(tmp_path):
     out = tmp_path / "dist"
-    build.build(REAL_DATA, out, "", "2026-10-13")
+    build.build(make_data(tmp_path), out, "", "2026-10-13")
     country = (out / "pl" / "index.html").read_text(encoding="utf-8")
     home = (out / "index.html").read_text(encoding="utf-8")
     assert 'href="../assets/style.css"' in country
@@ -44,7 +44,7 @@ def test_relative_links_depth(tmp_path):
 
 def test_country_without_facts_shows_notice_and_unverified_badge(tmp_path):
     out = tmp_path / "dist"
-    build.build(REAL_DATA, out, "", "2026-10-13")
+    build.build(make_data(tmp_path), out, "", "2026-10-13")
     cz = (out / "cz" / "index.html").read_text(encoding="utf-8")
     assert "ще не маємо підтверджених фактів" in cz
     assert "ще не перевірено" in cz
@@ -53,7 +53,7 @@ def test_country_without_facts_shows_notice_and_unverified_badge(tmp_path):
 
 def test_facts_have_source_and_date(tmp_path):
     out = tmp_path / "dist"
-    build.build(REAL_DATA, out, "", "2026-10-13")
+    build.build(make_data(tmp_path), out, "", "2026-10-13")
     eu = (out / "eu" / "index.html").read_text(encoding="utf-8")
     assert "2028" in eu
     assert "перевірено 2026-10-13" in eu
@@ -103,12 +103,10 @@ def test_affiliates_marked_and_adsense_optional(tmp_path):
     assert "client=ca-pub-1234567890123456" in pl
 
 
-def test_default_site_has_no_ads():
-    out = Path("/tmp/_ads_check")
-    shutil.rmtree(out, ignore_errors=True)
-    build.build(REAL_DATA, out, "", "2026-10-13")
+def test_default_site_has_no_ads(tmp_path):
+    out = tmp_path / "dist"
+    build.build(make_data(tmp_path), out, "", "2026-10-13")
     assert "adsbygoogle" not in (out / "index.html").read_text(encoding="utf-8")
-    shutil.rmtree(out, ignore_errors=True)
 
 
 def test_bad_adsense_id_rejected(tmp_path):

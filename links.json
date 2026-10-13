@@ -14,20 +14,20 @@
     "status": 200
   },
   "https://help.unhcr.org/czechia/": {
-    "fail_count": 1,
+    "fail_count": 2,
     "last_error": "HTTP 404",
     "status": 404
   },
   "https://help.unhcr.org/germany/": {
     "fail_count": 0,
-    "hash": "6cf3ffe3aa27ace25dd63bd21078788f21e72506134c0ab9e832dad22d931b44",
+    "hash": "1c375562132aeddd3ba77b2722c5d73cf4e7c00182dcd86713b67ff157e7f46c",
     "last_ok": "2026-10-13",
     "reported_unavailable": false,
     "status": 200
   },
   "https://help.unhcr.org/poland/": {
     "fail_count": 0,
-    "hash": "40983005aae6724aed3d82317f782928573dde9716e252fb27bea6d5b12b0ccb",
+    "hash": "b99de1a19fea104c3cdbed127c3620aca6e57bb6c0ab82ef98018c52ea95d4c3",
     "last_ok": "2026-10-13",
     "reported_unavailable": false,
     "status": 200

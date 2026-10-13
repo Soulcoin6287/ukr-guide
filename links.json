@@ -14,7 +14,7 @@
     "status": 200
   },
   "https://help.unhcr.org/czechia/": {
-    "fail_count": 3,
+    "fail_count": 4,
     "last_error": "HTTP 404",
     "reported_unavailable": true,
     "status": 404
@@ -23,7 +23,7 @@
     "fail_count": 0,
     "hash": "1c375562132aeddd3ba77b2722c5d73cf4e7c00182dcd86713b67ff157e7f46c",
     "last_ok": "2026-10-13",
-    "pending": "e60dc2549266bdf4cefcfce34c798ed2a5243e5c2ae192ee8859e702586a694a",
+    "pending": "a59f375b13e67778be2fff00100edd93d15ea38c36ea54384dcbf7cc7dc59cd5",
     "reported_unavailable": false,
     "status": 200
   },
@@ -31,7 +31,7 @@
     "fail_count": 0,
     "hash": "b99de1a19fea104c3cdbed127c3620aca6e57bb6c0ab82ef98018c52ea95d4c3",
     "last_ok": "2026-10-13",
-    "pending": "88607fd87b2eff014f4f0a903b03ca0ff89e41b3bcee0dbe5bce32f29648980f",
+    "pending": "566b72f95822cdc8e5551e014e12fcf7721b229381f42b8fccd6f0ecb0104e75",
     "reported_unavailable": false,
     "status": 200
   },

@@ -14,6 +14,7 @@ import html
 import json
 import os
 import re
+import shutil
 import sys
 from pathlib import Path
 from urllib.parse import urlparse
@@ -21,6 +22,7 @@ from urllib.parse import urlparse
 ROOT = Path(__file__).resolve().parent
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 ADSENSE_RE = re.compile(r"^ca-pub-\d{10,20}$")
+GOOGLE_FILE_RE = re.compile(r"^google[0-9a-f]{8,}\.html$")
 
 CHANGE_LABELS = {
     "changed": "Сторінку офіційного джерела змінено. Ми перевіряємо, чи потрібно оновити довідник.",
@@ -436,6 +438,10 @@ def build(data_dir: Path, out_dir: Path, base_url: str = "", today: str | None =
     for c in ctx.countries:
         write(out_dir / c["code"] / "index.html", render_country(ctx, c))
     write(out_dir / ".nojekyll", "")
+    # файл підтвердження Google Search Console (googleXXXXXXXXXXXXXXXX.html) копіюється на сайт без змін
+    for f in data_dir.glob("google*.html"):
+        if GOOGLE_FILE_RE.match(f.name):
+            shutil.copy(f, out_dir / f.name)
     if ctx.base_url:
         write(out_dir / "sitemap.xml", render_sitemap(ctx))
         write(out_dir / "feed.xml", render_feed(ctx))

@@ -137,3 +137,13 @@ def test_base_url_host_is_lowercased(tmp_path):
     assert "https://soulcoin6287.github.io/ukr-guide/index.html" in sitemap
     assert "Soulcoin6287" not in sitemap
     assert build.normalize_base("") == ""
+
+
+def test_google_verification_file_is_published(tmp_path):
+    data = make_data(tmp_path)
+    (data / "google0123456789abcdef.html").write_text("google-site-verification: google0123456789abcdef.html", encoding="utf-8")
+    (data / "googleevil.html").write_text("не повинен потрапити на сайт", encoding="utf-8")
+    out = tmp_path / "dist"
+    assert build.build(data, out, "https://x.github.io/g", "2026-10-13") == []
+    assert (out / "google0123456789abcdef.html").read_text(encoding="utf-8").startswith("google-site-verification")
+    assert not (out / "googleevil.html").exists()

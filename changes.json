@@ -1,5 +1,26 @@
 [
   {
+    "date": "2026-10-18",
+    "country": "Європейський Союз (загальне)",
+    "title": "Єврокомісія: тема «EU solidarity with Ukraine»",
+    "url": "https://commission.europa.eu/topics/eu-solidarity-ukraine_en",
+    "type": "changed"
+  },
+  {
+    "date": "2026-10-18",
+    "country": "Польща",
+    "title": "UNHCR Польща: довідковий сайт",
+    "url": "https://help.unhcr.org/poland/",
+    "type": "unavailable"
+  },
+  {
+    "date": "2026-10-18",
+    "country": "Німеччина",
+    "title": "UNHCR Німеччина: довідковий сайт",
+    "url": "https://help.unhcr.org/germany/",
+    "type": "unavailable"
+  },
+  {
     "date": "2026-10-17",
     "country": "Європейський Союз (загальне)",
     "title": "Єврокомісія: Migration and Home Affairs, новина про продовження захисту",

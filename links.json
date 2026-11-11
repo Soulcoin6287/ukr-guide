@@ -1,27 +1,26 @@
 {
   "https://commission.europa.eu/topics/eu-solidarity-ukraine_en": {
     "fail_count": 0,
-    "hash": "b3c765d51d92228740cd78e3e5987786c5e7b46c6b0d1ddb7a1bffa3109ae866",
-    "last_ok": "2026-11-10",
-    "pending": "40999f4f2986beb2a2dc71a08484479e6026c07baeb5c91eb2ff2db99a9e7b68",
+    "hash": "40999f4f2986beb2a2dc71a08484479e6026c07baeb5c91eb2ff2db99a9e7b68",
+    "last_ok": "2026-11-11",
     "reported_unavailable": false,
     "status": 200
   },
   "https://eprs.europarl.europa.eu/contents/publications/EPRS/2026/09/EPRS_BRI(2026)791473.html": {
     "fail_count": 0,
     "hash": "f22e30347ed0d631aa9d0a76d58f5f1bbbfdffd2b36f22bbde263e247825fb11",
-    "last_ok": "2026-11-10",
+    "last_ok": "2026-11-11",
     "reported_unavailable": false,
     "status": 200
   },
   "https://help.unhcr.org/czechia/": {
-    "fail_count": 31,
+    "fail_count": 32,
     "last_error": "HTTP 403",
     "reported_unavailable": true,
     "status": 403
   },
   "https://help.unhcr.org/germany/": {
-    "fail_count": 26,
+    "fail_count": 27,
     "hash": "14f2a2b8f7132f5cf58789aa58670e1ed8c152021b0423f582849122f463147b",
     "last_error": "HTTP 403",
     "last_ok": "2026-10-15",
@@ -30,7 +29,7 @@
     "status": 403
   },
   "https://help.unhcr.org/poland/": {
-    "fail_count": 26,
+    "fail_count": 27,
     "hash": "6464b85e8191e9da4db832ac4da8c4144c5758ad8f165a80f82d3578f72fe394",
     "last_error": "HTTP 403",
     "last_ok": "2026-10-15",
@@ -41,38 +40,39 @@
   "https://home-affairs.ec.europa.eu/news/commission-proposes-extend-temporary-protection-people-fleeing-ukraine-additional-year-2026-06-26_en": {
     "fail_count": 0,
     "hash": "798e940372b457f90b8c57db214612c5130206f115aa63bf651d7a45d3a2a87b",
-    "last_ok": "2026-11-10",
+    "last_ok": "2026-11-11",
     "reported_unavailable": false,
     "status": 200
   },
   "https://www.bamf.de/": {
     "fail_count": 0,
     "hash": "f49acd767629e72b74fe6cb0afb463275a29073066cb35aaab1c29188be0acbf",
-    "last_ok": "2026-11-10",
+    "last_ok": "2026-11-11",
+    "pending": "1f1729b459d3fa53f63b462b8744ecdeac9e1335dabae36eb8c1e03634f79ad8",
     "reported_unavailable": false,
     "status": 200
   },
   "https://www.germany4ukraine.de/": {
     "fail_count": 0,
     "hash": "b6af32bee34b0c29d83652b03ff60557f59cf7b36eb2f6cf9841da09f63594c5",
-    "last_ok": "2026-11-10",
+    "last_ok": "2026-11-11",
     "reported_unavailable": false,
     "status": 200
   },
   "https://www.gov.pl/web/udsc": {
-    "fail_count": 1,
+    "fail_count": 0,
     "hash": "f79b9fe69665977167a1362ddd2215eb3ad13a4d8e85d706fe1c0d9b4d812475",
     "last_error": "URLError",
-    "last_ok": "2026-11-09",
-    "pending": "be5837a9bfc585bf4bd4735f1bf765104341240fe0bb7097d94bf326d8c2b357",
+    "last_ok": "2026-11-11",
+    "pending": "069a821cf49a9cf7083aacb17efe384e018af61d168f8adc78ebb0d5e25aa9a3",
     "reported_unavailable": false,
-    "status": 0
+    "status": 200
   },
   "https://www.mv.gov.cz/": {
     "fail_count": 0,
     "hash": "200c6ec23f90814f7366629a40f38731f25afac10648927634aaf92e726e431c",
-    "last_ok": "2026-11-10",
-    "pending": "218c83ebd02281eaa5f660a5dd4152887fece173e3eb81cebeb12c065ec3f0e4",
+    "last_ok": "2026-11-11",
+    "pending": "a0512575f7ab619ab63f4e0b20ac2f12a7bbe4a0d5b236e094c2cdbd8d0e1d38",
     "reported_unavailable": false,
     "status": 200
   }

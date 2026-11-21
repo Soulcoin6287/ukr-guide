@@ -2,25 +2,26 @@
   "https://commission.europa.eu/topics/eu-solidarity-ukraine_en": {
     "fail_count": 0,
     "hash": "69544d1cb9225f383dfd37f8003b329d54de5101f458d843547ad6465e29c6c5",
-    "last_ok": "2026-11-20",
+    "last_ok": "2026-11-21",
+    "pending": "486de35abb31fb81e7708e1ce344cea959f3591edff13319bdd9da07cb560e30",
     "reported_unavailable": false,
     "status": 200
   },
   "https://eprs.europarl.europa.eu/contents/publications/EPRS/2026/09/EPRS_BRI(2026)791473.html": {
     "fail_count": 0,
     "hash": "9febc87d8058281a7c6162b76aaca87ddd1a0a73af512a349bb9afc601c88559",
-    "last_ok": "2026-11-20",
+    "last_ok": "2026-11-21",
     "reported_unavailable": false,
     "status": 200
   },
   "https://help.unhcr.org/czechia/": {
-    "fail_count": 41,
+    "fail_count": 42,
     "last_error": "HTTP 403",
     "reported_unavailable": true,
     "status": 403
   },
   "https://help.unhcr.org/germany/": {
-    "fail_count": 36,
+    "fail_count": 37,
     "hash": "14f2a2b8f7132f5cf58789aa58670e1ed8c152021b0423f582849122f463147b",
     "last_error": "HTTP 403",
     "last_ok": "2026-10-15",
@@ -29,7 +30,7 @@
     "status": 403
   },
   "https://help.unhcr.org/poland/": {
-    "fail_count": 36,
+    "fail_count": 37,
     "hash": "6464b85e8191e9da4db832ac4da8c4144c5758ad8f165a80f82d3578f72fe394",
     "last_error": "HTTP 403",
     "last_ok": "2026-10-15",
@@ -40,14 +41,14 @@
   "https://home-affairs.ec.europa.eu/news/commission-proposes-extend-temporary-protection-people-fleeing-ukraine-additional-year-2026-06-26_en": {
     "fail_count": 0,
     "hash": "ccf44dafd6d40131ace6e43cee92e1347d9d3f298464e9b54576165db3c73207",
-    "last_ok": "2026-11-20",
+    "last_ok": "2026-11-21",
     "reported_unavailable": false,
     "status": 200
   },
   "https://www.bamf.de/": {
     "fail_count": 0,
     "hash": "618a651b3107243c48f5e10fc9b9967e7b3a5f97f04e0f892c7c9867f942101f",
-    "last_ok": "2026-11-20",
+    "last_ok": "2026-11-21",
     "reported_unavailable": false,
     "status": 200
   },
@@ -55,7 +56,7 @@
     "fail_count": 0,
     "hash": "b6af32bee34b0c29d83652b03ff60557f59cf7b36eb2f6cf9841da09f63594c5",
     "last_error": "TimeoutError",
-    "last_ok": "2026-11-20",
+    "last_ok": "2026-11-21",
     "reported_unavailable": false,
     "status": 200
   },
@@ -63,15 +64,15 @@
     "fail_count": 0,
     "hash": "8f82b4f621f6823f189972963984866f9e543add3668eb516f3541295722383a",
     "last_error": "URLError",
-    "last_ok": "2026-11-20",
+    "last_ok": "2026-11-21",
+    "pending": "25b86b909f36f59d0a9a32b3fe246a0efd211890429b74cd35d44bd896a341e5",
     "reported_unavailable": false,
     "status": 200
   },
   "https://www.mv.gov.cz/": {
     "fail_count": 0,
-    "hash": "7f6741733926d63428e2b097e0feedeb644378b5ee57b70cca174b65998cdc32",
-    "last_ok": "2026-11-20",
-    "pending": "9c0bae4b871dd45bf8dd4bca7d4b4f2f9fd7ab9c78cb7e6deac855a127e1841f",
+    "hash": "9c0bae4b871dd45bf8dd4bca7d4b4f2f9fd7ab9c78cb7e6deac855a127e1841f",
+    "last_ok": "2026-11-21",
     "reported_unavailable": false,
     "status": 200
   }
